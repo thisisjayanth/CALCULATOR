@@ -6,20 +6,8 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     letter-spacing: 5px;
     font-size: 1.8rem;
-    /* -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none; */
   }
-  
-  .calculator {
-    background-color: black;
-
-    padding: 20px;
-    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 1px;
-  }
-  
+   
   .input {
     background-color:  rgb(14, 29, 41);
     border: 1px solid rgb(14, 29, 41);
@@ -34,6 +22,15 @@ body {
     overflow-x: auto;
     transition: all .2s ease-in-out;
   }
+
+  .calculator {
+    background-color: black;
+    padding: 20px;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 1px;
+  }
+ 
   
   .input:hover {
     border: 1px solid #bbb;
@@ -41,10 +38,7 @@ body {
     box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
   }
   
-  /* .buttons {}
-  
-  .operators {} */
-  
+
   .operators div {
     display: inline-block;
     border: 1px solid rgb(14, 29, 41);
@@ -73,31 +67,7 @@ body {
     display: inline-block;
   }
   
-  .numbers div {
-    color: rgb(163, 161, 161);
-    display: inline-block;
-    border: 1px solid rgb(6, 13, 19);
-    border-radius: 10px;
-    width: 80px;
-    text-align: center;
-    padding: 10px;
-    margin: 10px 4px 10px 0;
-    cursor: pointer;
-    background-color:  rgb(6, 13, 19);
-    transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
-  }
-  
-  .numbers div:hover {
-    background-color: #f1f1f1;
-    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
-    border-color: #bbb;
-  }
-  
-  .numbers div:active {
-    font-weight: bold;
-  }
-  
+
   div.equal {
     display: inline-block;
     border: 1px solid #3079ED;
@@ -123,3 +93,31 @@ body {
   div.equal:active {
     font-weight: bold;
   }
+
+
+  .numbers div {
+    color: rgb(163, 161, 161);
+    display: inline-block;
+    border: 1px solid rgb(6, 13, 19);
+    border-radius: 10px;
+    width: 80px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 4px 10px 0;
+    cursor: pointer;
+    background-color:  rgb(6, 13, 19);
+    transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+  }
+  
+  .numbers div:hover {
+    background-color: #f1f1f1;
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+    border-color: #bbb;
+  }
+  
+  .numbers div:active {
+    font-weight: bold;
+  }
+  
+
