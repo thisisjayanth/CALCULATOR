@@ -1,31 +1,26 @@
 "use strict";
 
-var input = document.getElementById('input'), // input/output button
-  number = document.querySelectorAll('.numbers div'), // number buttons
-  operator = document.querySelectorAll('.operators div'), // operator buttons
-  result = document.getElementById('result'), // equal button
-  clear = document.getElementById('clear'), // clear button
-  resultDisplayed = false; // flag to keep an eye on what output is displayed
+var input = document.getElementById('input'), 
+  number = document.querySelectorAll('.numbers div'),
+  operator = document.querySelectorAll('.operators div'),
+  result = document.getElementById('result'),
+  clear = document.getElementById('clear'),
+  resultDisplayed = false; 
 
 // adding click handlers to number buttons
 for (var i = 0; i < number.length; i++) {
   number[i].addEventListener("click", function(e) {
-
-    // storing current input string and its last character in variables - used later
     var currentString = input.innerHTML;
     var lastChar = currentString[currentString.length - 1];
 
-    // if result is not diplayed, just keep adding
     if (resultDisplayed === false) {
       input.innerHTML += e.target.innerHTML;
-    } else if (resultDisplayed === true && lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
-      // if result is currently displayed and user pressed an operator
-      // we need to keep on adding to the string for next operation
+    }
+    else if (resultDisplayed === true && lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
       resultDisplayed = false;
       input.innerHTML += e.target.innerHTML;
-    } else {
-      // if result is currently displayed and user pressed a number
-      // we need clear the input string and add the new input to start the new opration
+    }
+    else {
       resultDisplayed = false;
       input.innerHTML = "";
       input.innerHTML += e.target.innerHTML;
@@ -38,19 +33,17 @@ for (var i = 0; i < number.length; i++) {
 for (var i = 0; i < operator.length; i++) {
   operator[i].addEventListener("click", function(e) {
 
-    // storing current input string and its last character in variables - used later
     var currentString = input.innerHTML;
     var lastChar = currentString[currentString.length - 1];
 
-    // if last character entered is an operator, replace it with the currently pressed one
     if (lastChar === "+" || lastChar === "-" || lastChar === "×" || lastChar === "÷") {
       var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
       input.innerHTML = newString;
-    } else if (currentString.length == 0) {
-      // if first key pressed is an opearator, don't do anything
+    } 
+    else if (currentString.length == 0) {
       console.log("enter a number first");
-    } else {
-      // else just add the operator pressed to the input
+    } 
+    else {
       input.innerHTML += e.target.innerHTML;
     }
 
@@ -60,25 +53,14 @@ for (var i = 0; i < operator.length; i++) {
 // on click of 'equal' button
 result.addEventListener("click", function() {
 
-  // this is the string that we will be processing eg. -10+26+33-56*34/23
   var inputString = input.innerHTML;
-
-  // forming an array of numbers. eg for above string it will be: numbers = ["10", "26", "33", "56", "34", "23"]
   var numbers = inputString.split(/\+|\-|\×|\÷/g);
-
-  // forming an array of operators. for above string it will be: operators = ["+", "+", "-", "*", "/"]
-  // first we replace all the numbers and dot with empty string and then split
   var operators = inputString.replace(/[0-9]|\./g, "").split("");
 
   console.log(inputString);
   console.log(operators);
   console.log(numbers);
   console.log("----------------------------");
-
-  // now we are looping through the array and doing one operation at a time.
-  // first divide, then multiply, then subtraction and then addition
-  // as we move we are alterning the original numbers and operators array
-  // the final element remaining in the array will be the output
 
   var divide = operators.indexOf("÷");
   while (divide != -1) {
@@ -109,9 +91,9 @@ result.addEventListener("click", function() {
     add = operators.indexOf("+");
   }
 
-  input.innerHTML = numbers[0]; // displaying the output
+  input.innerHTML = numbers[0]; 
 
-  resultDisplayed = true; // turning flag if result is displayed
+  resultDisplayed = true;
 });
 
 // clearing the input on press of clear
